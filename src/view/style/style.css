@@ -1,0 +1,16 @@
+.main-div{
+    flex: 1;
+    background-color: aqua;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+}
+.main-div h1{
+    margin: 0px;
+    padding: 0px;
+}
+
+.left-div{
+    width: 200px;
+    height: 300px;
+}
