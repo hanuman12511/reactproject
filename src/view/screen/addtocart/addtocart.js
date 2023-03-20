@@ -34,7 +34,7 @@ let amount=0
     }
 }
 
-payment=()=>{
+ payment=()=>{
     const{payamount}=this.state
     console.log("Amount Done=(",payamount,")");
     <Link to='/payment'
@@ -43,7 +43,7 @@ payment=()=>{
         }} >
             Ok
             </Link>
-}
+} 
 
     render(){
         const{cartdata,payamount}=this.state

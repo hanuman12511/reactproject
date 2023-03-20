@@ -27,7 +27,7 @@ componentDidMount= async()=>{
 
     <table border={1} style={{width:600,backgroundColor:'red'}}>
 <tr>
-            <td>product_id</td>
+        <td>product_id</td>
         <td>product_name</td>
         <td>product_rate</td>
         <td>product_qty</td>

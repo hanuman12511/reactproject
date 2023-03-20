@@ -1,11 +1,13 @@
 import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
 import React from 'react'
-import './view/style/style.css'
-import Register from './view/screen/Register'
-import HomeScreen from './view/screen/home'
-import {data} from './view/data/data.js'
-import Login from './view/screen/Login'
-class App extends React.Component {
+import '../../style/style.css'
+import Home from './Home'
+import {data} from '../../data/data'
+import Detail from '../Detail/Detail'
+import Addtocart from '../addtocart/addtocart'
+import Payment from '../payment/payment'
+import Firebase1 from '../Firebase1/Firebase1'
+class HomeScreen extends React.Component {
   constructor(){
     super()
     this.state={
@@ -26,14 +28,7 @@ Activebtn(e){
     const{id} =this.state
   return (
   <>
-  <BrowserRouter>
-  <Routes>
-        <Route path='/' element={<Login />}/> 
-        <Route path='/Register' element={<Register />}/>
-        <Route path='/HomeScreen' element={<HomeScreen />}/>
-  </Routes>
-
- {/* 
+ 
     <div className='main-div'>
       <div className='left-div'>
         {data!==null?data.map(d=>(
@@ -47,21 +42,18 @@ Activebtn(e){
        </div>
       <div className='right-div'>
       <Routes>
-         <Route path='/Register' element={<Register />}/>
-         <Route path='/Home' element={<Home />}/>
-         <Route path='/Detail' element={<Detail />}/>
-         <Route path='/addtocart' element={<Addtocart />}/>
-         <Route path='/payment' element={<Payment />}/>
-         <Route path='/firebase1' element={<Firebase1 />}/>
+         <Route path='Home' element={<Home />}/>
+         <Route path='Detail' element={<Detail />}/>
+         <Route path='addtocart' element={<Addtocart />}/>
+         <Route path='payment' element={<Payment />}/>
+         <Route path='firebase1' element={<Firebase1 />}/>
          </Routes>
       </div>
     </div>
-    */}
-    </BrowserRouter>
   </>
     
       );
   }
 }
 
-export default App;
+export default HomeScreen;
