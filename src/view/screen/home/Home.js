@@ -42,7 +42,7 @@ componentDidMount= async()=>{
         <td>{d.product_qty}</td>
         <td>{d.product_color}</td>
        
-                <td><Link to='/Detail'
+                <td><Link to='http://localhost:3000/HomeScreen/Detail'
                     state= {{
                         product_id:d.product_id,
                         product_name:d.product_name,

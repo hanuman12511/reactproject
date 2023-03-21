@@ -6,7 +6,8 @@ class Login extends Component {
         super()
         this.state={
             email:'',
-            pass:''
+            pass:'',
+            user:  localStorage.getItem("user")
         }
         this.Login = this.Login.bind(this);
     }
@@ -15,6 +16,7 @@ class Login extends Component {
         let params={
             "email":email,
             "pass":pass,
+
         }
 
         let res = await axios.post("http://ankursingh.xyz/api/Employeelogin.php",params)
@@ -23,6 +25,7 @@ class Login extends Component {
        
         if(success){
             alert(message)
+            localStorage.setItem("user",email)
            window.location='/HomeScreen'
 
         }
@@ -33,8 +36,11 @@ class Login extends Component {
 
     }
     render() {
-        const{email,pass}=this.state
+        const{email,pass,user}=this.state
+        console.log("user:",user);
         return (
+            <>
+            {user === null?
             <div style={{flex:1,backgroundColor:'yellow'}}>
             <div style={{padding:20,borderRadius:30,width :400,backgroundColor:'red',textAlign:'center',marginLeft:'auto',marginRight:'auto'}}>
                 <h1>Login User</h1>
@@ -48,6 +54,8 @@ class Login extends Component {
                             </Link>
             </div>
             </div>
+           : window.location='HomeScreen'  }
+            </>
         );
     }
 }

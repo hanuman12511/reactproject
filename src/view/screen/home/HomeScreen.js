@@ -8,14 +8,22 @@ import Addtocart from '../addtocart/addtocart'
 import Payment from '../payment/payment'
 import Firebase1 from '../Firebase1/Firebase1'
 class HomeScreen extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
+    console.log("props");
+    console.log(props);
     this.state={
       btnactive:false,
       id:''
     }
     console.log(data);
     this.Activebtn = this.Activebtn.bind(this);
+    this.logout=this.logout.bind(this)
+  }
+  logout=()=>{
+    console.log("logout");
+    localStorage.clear()
+    window.location='/'
   }
 Activebtn(e){
  //e.preventDefault() ;
@@ -28,11 +36,18 @@ Activebtn(e){
     const{id} =this.state
   return (
   <>
- 
+ <div style={{flex:1,backgroundColor:'tan',height:50}}>
+        <button onClick={this.logout}>Logout</button>
+      </div>
     <div className='main-div'>
+      
       <div className='left-div'>
+      <Link to ="/HomeScreen" style={{ width:300,color:'white',padding:10}} >
+        <li style={{width:100,backgroundColor:'tan'}}>Home</li>
+        </Link><br/>
         {data!==null?data.map(d=>(
           <div style={{height:30,margin:20}}>
+            
        <Link to ={d.name} style={{ width:300,backgroundColor:(id===d.id) ? 'white':'tan',color:'white',padding:10}} onClick ={()=>this.Activebtn(d)}>
         <li style={{width:100,backgroundColor:'tan'}}>{d.name}</li>
         </Link><br/>
@@ -42,14 +57,15 @@ Activebtn(e){
        </div>
       <div className='right-div'>
       <Routes>
-         <Route path='Home' element={<Home />}/>
-         <Route path='Detail' element={<Detail />}/>
-         <Route path='addtocart' element={<Addtocart />}/>
-         <Route path='payment' element={<Payment />}/>
-         <Route path='firebase1' element={<Firebase1 />}/>
+         <Route path='/' element={<Home />} />
+         <Route path='/detail' element={<Detail />}/>
+         <Route path='/addtocart' element={<Addtocart />}/>
+         <Route path='/payment' element={<Payment />}/>
+         <Route path='/firebase1' element={<Firebase1 />}/>
          </Routes>
       </div>
     </div>
+    
   </>
     
       );

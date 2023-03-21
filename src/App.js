@@ -3,6 +3,7 @@ import React from 'react'
 import './view/style/style.css'
 import Register from './view/screen/Register'
 import HomeScreen from './view/screen/home'
+import Addtocart from './view/screen/addtocart/addtocart'
 import {data} from './view/data/data.js'
 import Login from './view/screen/Login'
 class App extends React.Component {
@@ -30,7 +31,9 @@ Activebtn(e){
   <Routes>
         <Route path='/' element={<Login />}/> 
         <Route path='/Register' element={<Register />}/>
-        <Route path='/HomeScreen' element={<HomeScreen />}/>
+        <Route path='/HomeScreen/*' element={<HomeScreen />}/>
+        
+        <Route path='addtocart' element={<Addtocart />}/>
   </Routes>
 
  {/* 

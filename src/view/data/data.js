@@ -1,1 +1,1 @@
-export let data=[{id:1,name:'Home'},{id:2,name:'Product'},{id:3,name:'addtocart'},{id:4,name:'Firebase1'}]
+export let data=[{id:1,name:'addtocart'},{id:2,name:'Firebase1'}]
