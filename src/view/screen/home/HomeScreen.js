@@ -7,6 +7,9 @@ import Detail from '../Detail/Detail'
 import Addtocart from '../addtocart/addtocart'
 import Payment from '../payment/payment'
 import Firebase1 from '../Firebase1/Firebase1'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+
 class HomeScreen extends React.Component {
   constructor(props){
     super(props)
@@ -36,8 +39,8 @@ Activebtn(e){
     const{id} =this.state
   return (
   <>
- <div style={{flex:1,backgroundColor:'tan',height:50}}>
-        <button onClick={this.logout}>Logout</button>
+ <div style={{flex:1,backgroundColor:'tan'}}>
+        <Button onClick={this.logout}variant="success">Logout</Button>
       </div>
     <div className='main-div'>
       
