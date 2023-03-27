@@ -20,10 +20,9 @@ componentDidMount= async()=>{
     }
    
     try {
-        console.log("&&&&&&&&&&&&&&&&");
+      
     let res = await axios.post('http://ankursingh.xyz/api/showProductaddtocart.php',params)
-   
-    console.log("datashowaddtocart",res.data);
+       console.log("datashowaddtocart",res.data);
 const{itemcount} =res.data
 let amount=0
 if(itemcount){
@@ -35,15 +34,12 @@ if(itemcount){
    })
 }
 
-   console.log(amount);
     this.setState({cartdata:res.data.body,payamount:amount,itemcount:itemcount})
 
 }
 else{
     this.setState({cartdata:res.data.body,payamount:amount,itemcount:itemcount})
 }
-  /*  let res1 = await axios.get('http://ankursingh.xyz/api/productshow.php')
-    console.log(res1.data); */
 } catch (error) {
         console.log(error);
     }
@@ -91,7 +87,7 @@ else{
 </div>
 </div>
 </>
-    :<h1>{}</h1>}
+    :<h1>No item</h1>}
 </div>
         )
     }
