@@ -17,7 +17,8 @@ class HomeScreen extends React.Component {
     console.log(props);
     this.state={
       btnactive:false,
-      id:''
+      id:'',
+    user:  localStorage.getItem("user")
     }
     console.log(data);
     this.Activebtn = this.Activebtn.bind(this);
@@ -36,10 +37,11 @@ Activebtn(e){
 }
 
   render(){
-    const{id} =this.state
+    const{id,user} =this.state
   return (
   <>
- <div style={{flex:1,backgroundColor:'tan'}}>
+ <div style={{flex:1,backgroundColor:'tan',display:'flex',alignItems:'center',justifyContent:'center'}}>
+  <p style={{marginRight:30,marginLeft:30,}}>{user}</p>
         <Button onClick={this.logout}variant="success">Logout</Button>
       </div>
     <div className='main-div'>

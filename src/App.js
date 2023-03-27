@@ -6,6 +6,7 @@ import HomeScreen from './view/screen/home'
 import Addtocart from './view/screen/addtocart/addtocart'
 import {data} from './view/data/data.js'
 import Login from './view/screen/Login'
+import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends React.Component {
   constructor(){
     super()

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
 class Login extends Component {
     constructor(){
         super()
@@ -16,10 +19,8 @@ class Login extends Component {
         let params={
             "email":email,
             "pass":pass,
-
-        }
-
-        let res = await axios.post("http://ankursingh.xyz/api/Employeelogin.php",params)
+    }
+    let res = await axios.post("http://ankursingh.xyz/api/Employeelogin.php",params)
         console.log(res.data);
         const {success,message}=res.data
        
@@ -30,8 +31,10 @@ class Login extends Component {
 
         }
         else{
-            alert(message)
-
+           /*  alert(message) */
+        <Alert>
+           This is a  alert—check it out!
+         </Alert>
         }
 
     }
@@ -40,6 +43,37 @@ class Login extends Component {
         console.log("user:",user);
         return (
             <>
+
+<div style={{width:400}} className="m-auto mt-2 mb-3 ">
+
+<Form className='bg-primary p-3 rounded-4'>
+<Form.Group className="mb-3 bg-primary" >
+
+<Form.Label className='text-light'>Email address</Form.Label>
+<Form.Control type="email" value={email} placeholder="enter email"  onChange={(d)=>this.setState({email:d.target.value})} />
+
+</Form.Group>
+<Form.Group className=" mb-3 bg-primary" >
+
+<Form.Label className='text-light'>Enter Password</Form.Label>
+<Form.Control type="password" value={pass} placeholder="enter pass"  onChange={(d)=>this.setState({pass:d.target.value})} />
+
+</Form.Group>
+<Button variant="success" type="button" style={{width:'100%'}} onClick={this.Login}>
+        Login
+      </Button>
+</Form>
+<Form className='bg-primary p-3 rounded-4 mt-4'>
+<Button variant="success" type="submit" style={{width:'100%'}}>
+<Link to='/Register' style={{textDecoration:'none',color:'white'}} >
+                        Register
+                            </Link>
+      </Button>
+</Form>
+
+</div>
+
+
             {user === null?
             <div style={{flex:1,backgroundColor:'yellow'}}>
             <div style={{padding:20,borderRadius:30,width :400,backgroundColor:'red',textAlign:'center',marginLeft:'auto',marginRight:'auto'}}>

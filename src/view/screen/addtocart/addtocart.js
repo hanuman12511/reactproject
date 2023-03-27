@@ -7,26 +7,41 @@ class Addtocart extends Component {
         super()
         this.state={
             cartdata:'',
-            payamount:''
+            payamount:'',
+            itemcount:0,
+            user : localStorage.getItem('user')
         }
         this.payment=this.payment.bind(this);
     }
 componentDidMount= async()=>{
-    
+    const{user} = this.state
+    let params={
+        "email":user
+    }
+   
     try {
-    let res = await axios.get('http://ankursingh.xyz/api/showProductaddtocart.php')
+        console.log("&&&&&&&&&&&&&&&&");
+    let res = await axios.post('http://ankursingh.xyz/api/showProductaddtocart.php',params)
    
-   let data1 =res.data.body
+    console.log("datashowaddtocart",res.data);
+const{itemcount} =res.data
 let amount=0
-   data1.map(d=>{
-   
-    amount+=parseInt(d.totalpay)
+if(itemcount){
+   let data1 =res.data.body
+    
+    if(data1!==''){
+        data1.map(d=>{
+        amount+=parseInt(d.totalpay)
    })
+}
 
    console.log(amount);
-    this.setState({cartdata:res.data.body,payamount:amount})
+    this.setState({cartdata:res.data.body,payamount:amount,itemcount:itemcount})
 
-
+}
+else{
+    this.setState({cartdata:res.data.body,payamount:amount,itemcount:itemcount})
+}
   /*  let res1 = await axios.get('http://ankursingh.xyz/api/productshow.php')
     console.log(res1.data); */
 } catch (error) {
@@ -46,14 +61,18 @@ let amount=0
 } 
 
     render(){
-        const{cartdata,payamount}=this.state
+        const{cartdata,payamount,itemcount}=this.state
         console.log("**********************");
        console.log(cartdata);
+       console.log("**********************");
       
         return(
 <div>
+{itemcount!==0?
+<>
 <h1>Add to cart</h1>
 <table style={{width:400}} border='1'> 
+
 {cartdata!==''?cartdata.map(d=>(
     <tr ><td>{d.product_qty}</td><td>{d.totalpay}</td></tr>
 )):null}
@@ -71,6 +90,8 @@ let amount=0
             </Link>
 </div>
 </div>
+</>
+    :<h1>{}</h1>}
 </div>
         )
     }

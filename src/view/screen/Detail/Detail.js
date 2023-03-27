@@ -6,6 +6,7 @@ function Detail() {
     
     const location = useLocation();
     const[data,setData]=useState(location.state)
+    const[user,setUserdata]=useState(localStorage.getItem('user'))
     const[qty,setQty]=useState(parseInt(location.state.product_qty))
     const[id,setId]=useState(parseInt(location.state.product_id))
     const[rate,setRate]=useState(parseInt(location.state.product_rate))
@@ -31,7 +32,8 @@ const addtocart=async()=>{
     let params={
         "product_id":id ,
         "product_qty": qty,
-        "total_pay": totalpay
+        "total_pay": totalpay,
+        "email":user
     }
     try {
         let res = await axios.post('http://ankursingh.xyz/api/addtocart.php',params)
