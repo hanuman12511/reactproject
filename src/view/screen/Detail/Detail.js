@@ -41,6 +41,7 @@ const addtocart=async()=>{
         const{success,message}=res.data
         if(success){
             alert(message)
+            window.location='/HomeScreen'
 
         }
        

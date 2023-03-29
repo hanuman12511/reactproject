@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-
+import delete1 from '../../image/delete.png' 
+import { Button } from 'bootstrap';
 class Addtocart extends Component {
     constructor(){
         super()
@@ -56,6 +57,28 @@ else{
             </Link>
 } 
 
+
+deleteaddtocart=async(data)=>{
+    
+    console.log("delete add imafe",data.target.alt);
+    let params={
+        cartid:data.target.alt
+    }
+    try{
+    let res = await axios.post('http://ankursingh.xyz/api/Deteleaddtocart.php',params)
+    console.log(res.data);
+    const{success,message}=res.data
+    if(success){
+        alert(message)
+        this.componentDidMount()
+
+    }
+   
+    
+} catch (error) {
+        console.log(error);
+    }
+}
     render(){
         const{cartdata,payamount,itemcount}=this.state
         console.log("**********************");
@@ -70,7 +93,7 @@ else{
 <table style={{width:400}} border='1'> 
 
 {cartdata!==''?cartdata.map(d=>(
-    <tr ><td>{d.product_qty}</td><td>{d.totalpay}</td></tr>
+    <tr ><td>{d.product_qty}</td><td>{d.totalpay}</td><td><img src={delete1} alt={d.cartid}style={{width:20 ,height:20}} onClick={d1=>this.deleteaddtocart(d1)}/></td></tr>
 )):null}
 </table>
 <div style={{display:'flex',alignItems:'center'}}>
