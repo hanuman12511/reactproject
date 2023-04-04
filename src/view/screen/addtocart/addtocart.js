@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import delete1 from '../../image/delete.png' 
 import { Button } from 'bootstrap';
+
+import {makeRequest} from '../../api/makeapi'
 class Addtocart extends Component {
     constructor(){
         super()
@@ -65,7 +67,10 @@ deleteaddtocart=async(data)=>{
         cartid:data.target.alt
     }
     try{
-    let res = await axios.post('http://ankursingh.xyz/api/Deteleaddtocart.php',params)
+    /* let res = await axios.post('http://ankursingh.xyz/api/Deteleaddtocart.php',params)
+    console.log(res.data); */
+
+    let res = await makeRequest('Deteleaddtocart.php')
     console.log(res.data);
     const{success,message}=res.data
     if(success){

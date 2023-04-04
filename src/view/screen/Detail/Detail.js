@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react';
 import product1 from '../../image/product1.jpg'
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+
+import {makeRequest} from '../../api/makeapi'
 function Detail() {
     
     const location = useLocation();
@@ -36,7 +38,11 @@ const addtocart=async()=>{
         "email":user
     }
     try {
-        let res = await axios.post('http://ankursingh.xyz/api/addtocart.php',params)
+       /*  let res = await axios.post('http://ankursingh.xyz/api/addtocart.php',params)
+        console.log(res.data); */
+
+
+        let res = await makeRequest('addtocart.php',params)
         console.log(res.data);
         const{success,message}=res.data
         if(success){
