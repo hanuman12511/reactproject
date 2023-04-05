@@ -119,8 +119,8 @@ addproduct=async()=>{
                         product_name:d.product_name,
                         product_rate:d.product_rate,
                         product_qty:d.product_qty,
-                        product_color:d.product_color
-
+                        product_color:d.product_color,
+                        image:d.image
                         }} >
                             Ok
                             </Link></td>

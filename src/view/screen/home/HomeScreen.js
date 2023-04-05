@@ -7,6 +7,7 @@ import Detail from '../Detail/Detail'
 import Addtocart from '../addtocart/addtocart'
 import Payment from '../payment/payment'
 import Firebase1 from '../Firebase1/Firebase1'
+import ClassExp from '../ClassExp/ClassExp'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
@@ -67,6 +68,7 @@ Activebtn(e){
          <Route path='/addtocart' element={<Addtocart />}/>
          <Route path='/payment' element={<Payment />}/>
          <Route path='/firebase1' element={<Firebase1 />}/>
+         <Route path='/classexp' element={<ClassExp />}/>
          </Routes>
       </div>
     </div>

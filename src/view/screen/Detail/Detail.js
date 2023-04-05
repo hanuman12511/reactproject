@@ -10,10 +10,11 @@ function Detail() {
     const[data,setData]=useState(location.state)
     const[user,setUserdata]=useState(localStorage.getItem('user'))
     const[qty,setQty]=useState(parseInt(location.state.product_qty))
+    const[image,setImage]=useState(location.state.image)
     const[id,setId]=useState(parseInt(location.state.product_id))
     const[rate,setRate]=useState(parseInt(location.state.product_rate))
     const[totalpay,setTotalpay]=useState(parseInt(location.state.product_qty)*parseInt(location.state.product_rate))
-    
+    console.log(image);
      function addQty(){
         console.log("add");
         if(qty<10)
@@ -61,7 +62,7 @@ const addtocart=async()=>{
         return (<>
             <div style={{width:700,backgroundColor:'red',display:'flex'}}>
                 <div style={{width:300,height:200,margin:20}}>
-                    <img  src={product1} style={{width:'100%'}}/>
+                    <img  src={`http://ankursingh.xyz/api/${image}`} style={{width:'100%'}}/>
                 </div>
                 <div style={{flex:1 ,marginLeft:20,marginRight:20}}>
                 <h3>product_id: <span style={{color:'white',marginLeft:20}}>{data.product_id}</span></h3>
