@@ -62,7 +62,7 @@ const addtocart=async()=>{
         return (<>
             <div style={{width:700,backgroundColor:'red',display:'flex'}}>
                 <div style={{width:300,height:200,margin:20}}>
-                    <img  src={`http://ankursingh.xyz/api/${image}`} style={{width:'100%'}}/>
+                    <img  src={image} style={{width:'100%',height:'100%'}}/>
                 </div>
                 <div style={{flex:1 ,marginLeft:20,marginRight:20}}>
                 <h3>product_id: <span style={{color:'white',marginLeft:20}}>{data.product_id}</span></h3>

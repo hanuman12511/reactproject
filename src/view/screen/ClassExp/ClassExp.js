@@ -7,7 +7,7 @@ class Comp1 extends React.Component {
   }
 }
   
-class ClassExp extends React.Component {
+class ClassExp extends React.PureComponent {
   state = { color: 'black' };
   render() {
     return (

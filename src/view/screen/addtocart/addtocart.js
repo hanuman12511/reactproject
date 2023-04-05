@@ -76,10 +76,8 @@ deleteaddtocart=async(data)=>{
     if(success){
         alert(message)
         this.componentDidMount()
-
-    }
-   
-    
+  }
+     
 } catch (error) {
         console.log(error);
     }
@@ -106,7 +104,7 @@ deleteaddtocart=async(data)=>{
     <h3>Total Amount : <span style={{color:'red'}}>{payamount}/-Rs</span></h3>
 </div>
 <div style={{width:200,padding:10,marginTop:20}}>
-<Link to='/payment'
+<Link to='/HomeScreen/payment'
     state= {{
         amount:payamount
         }} >
