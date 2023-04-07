@@ -4,16 +4,17 @@
   "main": "mongodbb.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node mongodbb.js"
+    "start": "node mongodbb.js",
+    "dev": "nodemon mongodbb.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "mongodb": "^5.2.0",
+    "mongoose": "^7.0.3",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.22"
   },
-  "devDependencies": {},
   "description": ""
 }
