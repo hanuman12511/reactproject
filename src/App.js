@@ -3,7 +3,7 @@ import React from 'react'
 import './view/style/style.css'
 import Register from './view/screen/Register'
 import HomeScreen from './view/screen/home'
-import Addtocart from './view/screen/addtocart/addtocart'
+import Addtocart1 from './view/screen/addtocart/Addtocart1'
 import {data} from './view/data/data.js'
 import Login from './view/screen/Login'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,7 +34,7 @@ Activebtn(e){
         <Route path='/Register' element={<Register />}/>
         <Route path='/HomeScreen/*' element={<HomeScreen />}/>
         
-        <Route path='addtocart' element={<Addtocart />}/>
+        <Route path='/add' element={<Addtocart1 />}/>
   </Routes>
 
  {/* 

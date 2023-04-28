@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
-class Login extends Component {
+class Loginuser extends Component {
     constructor(){
         super()
         this.state={
@@ -94,4 +94,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Loginuser;

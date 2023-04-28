@@ -1,23 +1,26 @@
-import React from 'react';
-  
-class Comp1 extends React.Component {
-  render() {
-    console.log('Child Component is called');
-    return <h1>{this.props.value}</h1>;
-  }
+
+import {useNavigate} from 'react-router-dom'
+export default function ClassExp() {
+ 
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/add",{state                                                                             
+      
+      
+      
+      :'hanu'});
+  };
+
+  return (
+    <button
+      type="submit"
+      className="btn"
+      onClick={() => {
+        handleClick();
+      }}
+    >
+      Join Chat
+    </button>
+  );
 }
-  
-class ClassExp extends React.PureComponent {
-  state = { color: 'black' };
-  render() {
-    return (
-      <div style={{ color: this.state.color }}>
-        <Comp1 value="Rahul" />
-        <button onClick={() => this.setState({ color: 'green' })}>
-          Change Color
-        </button>
-      </div>
-    );
-  }
-}
-export default ClassExp;
