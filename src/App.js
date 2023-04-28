@@ -5,7 +5,7 @@ import Register from './view/screen/Register'
 import HomeScreen from './view/screen/home'
 import Addtocart1 from './view/screen/addtocart/Addtocart1'
 import {data} from './view/data/data.js'
-import Login from './view/screen/Login'
+import Login from './view/screen/login'
 import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends React.Component {
   constructor(){
