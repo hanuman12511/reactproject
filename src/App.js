@@ -1,5 +1,5 @@
 import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
-import React from 'react'
+ import React, { useState } from 'react'
 import './view/style/style.css'
 import Register from './view/screen/Register'
 import HomeScreen from './view/screen/home'
@@ -7,7 +7,11 @@ import Addtocart1 from './view/screen/addtocart/Addtocart1'
 import {data} from './view/data/data.js'
 import Login from './view/screen/login'
 import 'bootstrap/dist/css/bootstrap.min.css';
-class App extends React.Component {
+import RegisterForm from './view/screen/RegisterForm.js'
+import LoginForm from './view/screen/LoginForm'
+import Home from './view/screen/product/Home'
+import DetailsScreen from './view/screen/DetailsScreen'
+/*class App extends React.Component {
   constructor(){
     super()
     this.state={
@@ -24,20 +28,32 @@ Activebtn(e){
   this.setState({btnactive:!this.state.btnactive,id:e.id})
 }
 
+logout1(){
+  console.log("logout");
+}
+
   render(){
     const{id} =this.state
   return (
   <>
   <BrowserRouter>
+  <div>
+    <Link to="/"  className='link'>Home</Link>
+    <Link to="/register1" className='link'>Register</Link>
+    <Link to="/login" className='link' >Login</Link>
+    <Link to="/profile" className='link' >Profile</Link>
+    <button onClick={()=>{alert("logout")}}>logout</button>
+  </div>
   <Routes>
-        <Route path='/' element={<Login />}/> 
+        <Route path='/register1' element={<RegisterForm />}/> 
+        <Route path='/login' element={<LoginForm />}/> 
         <Route path='/Register' element={<Register />}/>
         <Route path='/HomeScreen/*' element={<HomeScreen />}/>
         
-        <Route path='/add' element={<Addtocart1 />}/>
+        <Route path='/' element={<Home />}/>
   </Routes>
-
- {/* 
+ */
+ /*{
     <div className='main-div'>
       <div className='left-div'>
         {data!==null?data.map(d=>(
@@ -60,8 +76,8 @@ Activebtn(e){
          </Routes>
       </div>
     </div>
-    */}
-    </BrowserRouter>
+    }*/
+    /* </BrowserRouter>
   </>
     
       );
@@ -69,3 +85,50 @@ Activebtn(e){
 }
 
 export default App;
+ */
+
+
+
+  export default function App(){
+    const[user,setUser] = useState(localStorage.getItem('email'))
+
+
+    console.log(user);
+function logout(){
+  localStorage.clear()
+  window.location.reload()
+}
+
+
+    return(
+      <>
+      <BrowserRouter>
+      <div>
+    <Link to="/"  className='link'>Home</Link>
+   
+  { user?
+  <> 
+  <Link to="/profile" className='link' >Profile</Link>
+  <button onClick={logout}>logout</button>
+  </>
+:<>
+    <Link to="/register1" className='link'>Register</Link>
+    <Link to="/login" className='link' >Login</Link>
+    </>
+ }
+  
+  </div>
+  <Routes>
+        <Route path='/register1' element={<RegisterForm />}/> 
+        <Route path='/login' element={<LoginForm />}/> 
+        <Route path='/Register' element={<Register />}/>
+        <Route path='/details' element={<DetailsScreen />}/>
+        <Route path='/HomeScreen/*' element={<HomeScreen />}/>
+        
+        <Route path='/' element={<Home />}/>
+  </Routes>
+      
+      </BrowserRouter>
+      </>
+    )
+  }
