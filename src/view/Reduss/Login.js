@@ -12,14 +12,14 @@ const [username1,setUsername] =useState('')
                     dispatch({type:'success'})
 
                 }
-        },1000)
+        },3000)
     }
     function logoutfun(){
 dispatch({type:'login'})
             setTimeout(() => {
                 
                 dispatch({type:"logout"})
-            }, 1000);
+            }, 3000);
     }
     return(
         <>
@@ -30,7 +30,7 @@ dispatch({type:'login'})
         :
         <>
         <input value={username1} onChange={d=>setUsername(d.currentTarget.value)}/><br/>
-        <button onClick={loginfun}> {isLoading?"login...":"Login"}</button>
+        <button onClick={loginfun}> {isLoading?<img src={require('../image/loading.gif')} style={{width:50,height:50}}/>:"Login"}</button>
         </>
 }
        </>
