@@ -5,12 +5,13 @@ import Register from './view/screen/Register'
 import HomeScreen from './view/screen/home'
 import Addtocart1 from './view/screen/addtocart/Addtocart1'
 import {data} from './view/data/data.js'
-import Login from './view/screen/login'
+import Login from './view/Reduss/Login'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RegisterForm from './view/screen/RegisterForm.js'
 import LoginForm from './view/screen/LoginForm'
 import Home from './view/screen/product/Home'
 import DetailsScreen from './view/screen/DetailsScreen'
+import Reducerss from './view/screen/Reducers'
 /*class App extends React.Component {
   constructor(){
     super()
@@ -126,6 +127,8 @@ function logout(){
         <Route path='/HomeScreen/*' element={<HomeScreen />}/>
         
         <Route path='/' element={<Home />}/>
+        <Route path='/reducers' element={<Reducerss />}/>
+        <Route path='/loginr' element={<Login />}/>
   </Routes>
       
       </BrowserRouter>
