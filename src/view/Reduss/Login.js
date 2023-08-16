@@ -9,7 +9,7 @@ const [username1,setUsername] =useState('')
         dispatch({type:'login'})
         setTimeout(()=>{
                 if(username1=="admin"){
-                    dispatch({type:'success'})
+                    dispatch({type:'success',name:"admin"})
 
                 }
         },3000)
@@ -23,14 +23,14 @@ dispatch({type:'login'})
     }
     return(
         <>
-        <h1>Login user</h1>
+        <h1>{`Login user ${username}`}</h1>
       {  isLoggedIn?<>
         <button onClick={logoutfun}>{isLoading?"logout...":"Logout"}</button>
         </>
         :
         <>
         <input value={username1} onChange={d=>setUsername(d.currentTarget.value)}/><br/>
-        <button onClick={loginfun}> {isLoading?<img src={require('../image/loading.gif')} style={{width:50,height:50}}/>:"Login"}</button>
+        <button onClick={loginfun} style={{width:100,height:50,backgroundColor:'#fff'}}> {isLoading?<img src={require('../image/loading.gif')} style={{width:50,height:30}}/>:"Login"}</button>
         </>
 }
        </>

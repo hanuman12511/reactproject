@@ -18,13 +18,15 @@ const initial={
             return{
                 ...state,
                 isLoading:false,
-                isLoggedIn:true
+                isLoggedIn:true,
+                username:action.name
             }
         case 'logout':
             return{
                 ...state,
                 isLoading:false,
-                isLoggedIn:false
+                isLoggedIn:false,
+                username:""
             }
     }
 
