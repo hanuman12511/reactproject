@@ -31,15 +31,11 @@ const [cart,setCart] = useState([])
 console.log(product);
 
 function productdetails(d){
-
     console.log(addcart);
     const data={
         ...d,
-       
-        
-    }
+       }
     nav("/details",{state:{data}})
-
 }
 return(<>
 <div style={{padding:50,display:"inline-flex"}}>
