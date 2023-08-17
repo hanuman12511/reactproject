@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import {data} from '../../data/data'
 import { useNavigate } from "react-router-dom"
+import ProductTile from "../../Component/ProductTile"
 export default function Home(){
 
 const nav = useNavigate()
@@ -42,10 +43,9 @@ return(<>
         product&&product.map(d=>(
 
             <>
-            <div onClick={()=>productdetails(d)} style={{padding:20,width:200,height:200,backgroundColor:'gray',margin:20}}>
-                <p>{d.product_name}</p>
-                <img src={ d.image} style={{width:100}}/>
-            </div>
+
+            <ProductTile data={d} addtocart={()=>productdetails(d)}/>
+           {/*  */}
             </>
         ))
     }
