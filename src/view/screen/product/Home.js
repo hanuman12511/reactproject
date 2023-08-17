@@ -1,8 +1,9 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import {data} from '../../data/data'
+import {data,addcart} from '../../data/data'
 import { useNavigate } from "react-router-dom"
 import ProductTile from "../../Component/ProductTile"
+
 export default function Home(){
 
 const nav = useNavigate()
@@ -30,11 +31,14 @@ const [cart,setCart] = useState([])
 console.log(product);
 
 function productdetails(d){
+
+    console.log(addcart);
     const data={
         ...d,
-        cart
+       
+        
     }
-    nav("/details",{state:data})
+    nav("/details",{state:{data}})
 
 }
 return(<>

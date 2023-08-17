@@ -1,12 +1,13 @@
 import { useState } from "react"
-import { useLocation } from "react-router-dom"
-
+import { useLocation, useNavigate } from "react-router-dom"
+import {addcart} from "../data/data";
 export default function DetailsScreen(){
     const loc = useLocation()
+    const nav  = useNavigate()
     const[product,setProduct] = useState(loc.state)
 const [qty,setQty] = useState(1) 
-    console.log(product);
-
+   
+    const{data} = product
     function addqty(){
       
         var q =qty
@@ -23,31 +24,39 @@ var q =qty
         }
     }
 
-    function addtocart(){
+    function addtocart(product1){
         alert("add to cart")
+           console.log(product1);
+           
+           addcart.push(product1);
+
+
+        
+        nav("/addtocart",{state:addcart})
+
     }
     return(
         <>
        <div className="cartdiv">
             <div className="cartimage">
                 <div className="cartimagemain">
-                <img src={product.image} className="cartimageshow"/>
+                <img src={data.image} className="cartimageshow"/>
                 </div>
                 <div className="cartimagemore">
                     <div className="cartimagemore1">
-                        <img src={product.image} className="cartimageshow"/>
+                        <img src={data.image} className="cartimageshow"/>
                     </div>
                     <div className="cartimagemore1">
-                        <img src={product.image} className="cartimageshow"/>
+                        <img src={data.image} className="cartimageshow"/>
                     </div>
                     <div className="cartimagemore1">
-                        <img src={product.image} className="cartimageshow"/>
+                        <img src={data.image} className="cartimageshow"/>
                     </div>
                     <div className="cartimagemore1">
-                        <img src={product.image} className="cartimageshow"/>
+                        <img src={data.image} className="cartimageshow"/>
                     </div>
                     <div className="cartimagemore1">
-                        <img src={product.image} className="cartimageshow"/>
+                        <img src={data.image} className="cartimageshow"/>
                     </div>
 
                 </div>
@@ -56,8 +65,8 @@ var q =qty
                 <div className="carttext1">
                 <div className="carttextinfo">
                     <div className="productqty">
-                        <p><b>Product Name :</b>  {product.product_name}</p>
-                        <p><b>Product Rate :</b>  Rs.{product.product_rate}/-</p>
+                        <p><b>Product Name :</b>  {data.product_name}</p>
+                        <p><b>Product Rate :</b>  Rs.{data.product_rate}/-</p>
                     </div>
                     <div className="addqty">
                         <img onClick={subqty} src={require('../image/sub.png')} style={{width:50,height:50}}/>
@@ -65,13 +74,13 @@ var q =qty
                         <img onClick={addqty} src={require('../image/add.png')} style={{width:50,height:50}}/>
                     </div>
                     <div className="productqty">
-                        <p><b>Product Name :</b>  {product.product_name}</p>
-                        <p><b>Product Rate :</b>  Rs.{product.product_rate}/-</p>
+                        <p><b>Product Name :</b>  {data.product_name}</p>
+                        <p><b>Product Rate :</b>  Rs.{data.product_rate}/-</p>
                     </div>
                 </div>
                 <div className="cartinfo">
-                    <p><b>Total Pay :</b>  {product.product_rate*qty}</p>
-                    <button onClick={addtocart}>Add To Cart</button>
+                    <p><b>Total Pay :</b>  {data.product_rate*qty}</p>
+                    <button onClick={()=>addtocart(data)}>Add To Cart</button>
                 </div>
                 </div>
             </div>

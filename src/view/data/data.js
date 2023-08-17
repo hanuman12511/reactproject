@@ -40,3 +40,6 @@ export const data = [
         "image": require('../image/product1.jpg')
     }
 ]
+
+
+export var addcart =[]

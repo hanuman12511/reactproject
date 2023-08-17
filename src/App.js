@@ -12,6 +12,7 @@ import LoginForm from './view/screen/LoginForm'
 import Home from './view/screen/product/Home'
 import DetailsScreen from './view/screen/DetailsScreen'
 import Reducerss from './view/screen/Reducers'
+import Addtocart from './view/screen/Addtocart'
 /*class App extends React.Component {
   constructor(){
     super()
@@ -129,6 +130,7 @@ function logout(){
         <Route path='/' element={<Home />}/>
         <Route path='/reducers' element={<Reducerss />}/>
         <Route path='/loginr' element={<Login />}/>
+        <Route path='/addtocart' element={<Addtocart/>}/>
   </Routes>
       
       </BrowserRouter>
