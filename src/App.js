@@ -13,6 +13,8 @@ import Home from './view/screen/product/Home'
 import DetailsScreen from './view/screen/DetailsScreen'
 import Reducerss from './view/screen/Reducers'
 import Addtocart from './view/screen/Addtocart'
+import Payment from './view/screen/payment/payment'
+import Order from './view/screen/Order'
 /*class App extends React.Component {
   constructor(){
     super()
@@ -131,6 +133,8 @@ function logout(){
         <Route path='/reducers' element={<Reducerss />}/>
         <Route path='/loginr' element={<Login />}/>
         <Route path='/addtocart' element={<Addtocart/>}/>
+        <Route path='/payment' element={<Payment/>}/>
+        <Route path='/order' element={<Order/>}/>
   </Routes>
       
       </BrowserRouter>

@@ -27,8 +27,11 @@ var q =qty
     function addtocart(product1){
         alert("add to cart")
            console.log(product1);
-           
-           addcart.push(product1);
+           const params={
+            ...product1,
+            "qty":qty
+           }
+           addcart.push(params);
 
 
         
