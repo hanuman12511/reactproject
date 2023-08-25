@@ -1,10 +1,10 @@
 import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
- import React, { useState } from 'react'
+ import React, { createContext, useState } from 'react'
 import './view/style/style.css'
 import Register from './view/screen/Register'
 import HomeScreen from './view/screen/home'
 import Addtocart1 from './view/screen/addtocart/Addtocart1'
-import {data} from './view/data/data.js'
+import {addcart, data} from './view/data/data.js'
 import Login from './view/Reduss/Login'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RegisterForm from './view/screen/RegisterForm.js'
@@ -15,6 +15,7 @@ import Reducerss from './view/screen/Reducers'
 import Addtocart from './view/screen/Addtocart'
 import Payment from './view/screen/payment/payment'
 import Order from './view/screen/Order'
+import {AuthContext} from './view/screen/AuthContext'
 /*class App extends React.Component {
   constructor(){
     super()
@@ -94,6 +95,8 @@ export default App;
 
 
   export default function App(){
+
+   
     const[user,setUser] = useState(localStorage.getItem('email'))
 
 
@@ -106,6 +109,7 @@ function logout(){
 
     return(
       <>
+      <AuthContext.Provider value={addcart}>
       <BrowserRouter>
       <div>
     <Link to="/"  className='link'>Home</Link>
@@ -138,6 +142,7 @@ function logout(){
   </Routes>
       
       </BrowserRouter>
+      </AuthContext.Provider>
       </>
     )
   }

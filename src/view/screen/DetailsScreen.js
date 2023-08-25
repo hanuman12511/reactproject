@@ -1,7 +1,9 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import {addcart} from "../data/data";
+import {AuthContext} from './AuthContext'
 export default function DetailsScreen(){
+const addcart = useContext(AuthContext)
+
     const loc = useLocation()
     const nav  = useNavigate()
     const[product,setProduct] = useState(loc.state)
@@ -24,7 +26,7 @@ var q =qty
         }
     }
 
-    function addtocart(product1){
+    function addToCart(product1){
         alert("add to cart")
            console.log(product1);
            const params={
@@ -83,7 +85,7 @@ var q =qty
                 </div>
                 <div className="cartinfo">
                     <p><b>Total Pay :</b>  {data.product_rate*qty}</p>
-                    <button onClick={()=>addtocart(data)}>Add To Cart</button>
+                    <button onClick={()=>addToCart(data)}>Add To Cart</button>
                 </div>
                 </div>
             </div>
