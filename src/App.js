@@ -1,14 +1,27 @@
 import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
-import React from 'react'
+ import React, { createContext, useState } from 'react'
 import './view/style/style.css'
 import Register from './view/screen/Register'
 import HomeScreen from './view/screen/home'
 import Addtocart1 from './view/screen/addtocart/Addtocart1'
-import {data} from './view/data/data.js'
-import Login from './view/screen/login'
+import {addcart, data} from './view/data/data.js'
+import Login from './view/Reduss/Login'
 import 'bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
 import Home from './view/screen/TestScreen/Home'
 class App extends React.Component {
+=======
+import RegisterForm from './view/screen/RegisterForm.js'
+import LoginForm from './view/screen/LoginForm'
+import Home from './view/screen/product/Home'
+import DetailsScreen from './view/screen/DetailsScreen'
+import Reducerss from './view/screen/Reducers'
+import Addtocart from './view/screen/Addtocart'
+import Payment from './view/screen/payment/payment'
+import Order from './view/screen/Order'
+import {AuthContext} from './view/screen/AuthContext'
+/*class App extends React.Component {
+>>>>>>> 5a0d4edb841f5746676a4de291e976840c94fa8b
   constructor(){
     super()
     this.state={
@@ -25,11 +38,16 @@ Activebtn(e){
   this.setState({btnactive:!this.state.btnactive,id:e.id})
 }
 
+logout1(){
+  console.log("logout");
+}
+
   render(){
     const{id} =this.state
   return (
   <>
   <BrowserRouter>
+<<<<<<< HEAD
  {/*  <Routes>
         <Route path='/' element={<Login />}/> 
         <Route path='/Register' element={<Register />}/>
@@ -40,9 +58,25 @@ Activebtn(e){
 
   <Routes>
     <Route path="/" Component={Home}/>
+=======
+  <div>
+    <Link to="/"  className='link'>Home</Link>
+    <Link to="/register1" className='link'>Register</Link>
+    <Link to="/login" className='link' >Login</Link>
+    <Link to="/profile" className='link' >Profile</Link>
+    <button onClick={()=>{alert("logout")}}>logout</button>
+  </div>
+  <Routes>
+        <Route path='/register1' element={<RegisterForm />}/> 
+        <Route path='/login' element={<LoginForm />}/> 
+        <Route path='/Register' element={<Register />}/>
+        <Route path='/HomeScreen/*' element={<HomeScreen />}/>
+        
+        <Route path='/' element={<Home />}/>
+>>>>>>> 5a0d4edb841f5746676a4de291e976840c94fa8b
   </Routes>
-
- {/* 
+ */
+ /*{
     <div className='main-div'>
       <div className='left-div'>
         {data!==null?data.map(d=>(
@@ -65,8 +99,8 @@ Activebtn(e){
          </Routes>
       </div>
     </div>
-    */}
-    </BrowserRouter>
+    }*/
+    /* </BrowserRouter>
   </>
     
       );
@@ -74,3 +108,59 @@ Activebtn(e){
 }
 
 export default App;
+ */
+
+
+
+  export default function App(){
+
+   
+    const[user,setUser] = useState(localStorage.getItem('email'))
+
+
+    console.log(user);
+function logout(){
+  localStorage.clear()
+  window.location.reload()
+}
+
+
+    return(
+      <>
+      <AuthContext.Provider value={addcart}>
+      <BrowserRouter>
+      <div>
+    <Link to="/"  className='link'>Home</Link>
+   
+  { user?
+  <> 
+  <Link to="/profile" className='link' >Profile</Link>
+  <button onClick={logout}>logout</button>
+  </>
+:<>
+    <Link to="/register1" className='link'>Register</Link>
+    <Link to="/login" className='link' >Login</Link>
+    </>
+ }
+  
+  </div>
+  <Routes>
+        <Route path='/register1' element={<RegisterForm />}/> 
+        <Route path='/login' element={<LoginForm />}/> 
+        <Route path='/Register' element={<Register />}/>
+        <Route path='/details' element={<DetailsScreen />}/>
+        <Route path='/HomeScreen/*' element={<HomeScreen />}/>
+        
+        <Route path='/' element={<Home />}/>
+        <Route path='/reducers' element={<Reducerss />}/>
+        <Route path='/loginr' element={<Login />}/>
+        <Route path='/addtocart' element={<Addtocart/>}/>
+        <Route path='/payment' element={<Payment/>}/>
+        <Route path='/order' element={<Order/>}/>
+  </Routes>
+      
+      </BrowserRouter>
+      </AuthContext.Provider>
+      </>
+    )
+  }

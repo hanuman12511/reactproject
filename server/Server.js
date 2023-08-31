@@ -11,11 +11,13 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "mydb"
+ database: "db" 
 });
 let data=''
 con.connect(function(err) {
-  
+  if(err){
+    console.log(err);
+  }
   data="Connected!"
 });
 
@@ -25,12 +27,17 @@ app.get("/",(req,res)=>{
 
 app.post("/createDb",(req,res)=>{
     let data={"name":req.body}
+    console.log(req.body.db);
+    sql ="CREATE DATABASE "+req.body.db;
+    console.log(sql);
     con.query("CREATE DATABASE "+req.body.db, function (err, result) {
-        if (err) throw err;
+        if (err) 
+        console.log(err);
         console.log("Database created");
 
         data['connect']="Database created"
       });
+      console.log(result);
       res.send(data)
     
 })
