@@ -7,6 +7,7 @@ import Addtocart1 from './view/screen/addtocart/Addtocart1'
 import {data} from './view/data/data.js'
 import Login from './view/screen/login'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './view/screen/TestScreen/Home'
 class App extends React.Component {
   constructor(){
     super()
@@ -29,12 +30,16 @@ Activebtn(e){
   return (
   <>
   <BrowserRouter>
-  <Routes>
+ {/*  <Routes>
         <Route path='/' element={<Login />}/> 
         <Route path='/Register' element={<Register />}/>
         <Route path='/HomeScreen/*' element={<HomeScreen />}/>
         
         <Route path='/add' element={<Addtocart1 />}/>
+  </Routes> */}
+
+  <Routes>
+    <Route path="/" Component={Home}/>
   </Routes>
 
  {/* 
